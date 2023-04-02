@@ -39,7 +39,7 @@ function Todos() {
     console.log(id);
     let oldTask;
     //fetch task details
-    axios.get('http://localhost:4000/tasks')
+    axios.get('http://localhost:3500/todo/get')
     .then(res=>{
       let tasks=res.data;
       console.log(tasks)
@@ -50,7 +50,7 @@ function Todos() {
       console.log(oldTask)
       
       //update the object
-      axios.put(`http://localhost:4000/tasks/${id}`,oldTask)
+      axios.put(`http://localhost:3500/todo/put/${id}`,oldTask)
       .then(res => {
         console.log(res.data)
         setC(c + 1);
