@@ -61,3 +61,12 @@ app.delete('/todo/delete/:id',(req,res)=>{
     });
 })
 //UPDATE request (/todo/update)
+app.put('/todo/put/:id', (req,res)=>{
+    const id = (+ req.params.id)
+    const taskStatus = req.body.taskStatus;
+    const sqlUpdate = 'UPDATE tasksdata SET taskStatus = ? WHERE id = ?';
+    connection.query(sqlUpdate , [taskStatus,id] , (err,result)=>{
+        err&&console.log(err);
+        res.send("Successfuly updates")
+    })
+} )
