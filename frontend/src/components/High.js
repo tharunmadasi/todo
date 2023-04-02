@@ -33,7 +33,7 @@ function High() {
       console.log(oldTask)
       
       //update the object
-      axios.put(`http://localhost:4000/tasks/${id}`,oldTask)
+      axios.put(`http://localhost:3500/todo/put/${id}`,oldTask)
       .then(res => {
         console.log(res.data)
         setC(c + 1);
