@@ -1,7 +1,7 @@
 import './Todos.css'
 import React, { useEffect, useState } from 'react';
 import {FcTodoList} from 'react-icons/fc'
-import {GiProgression} from 'react-icons/gi';
+import {GiCogLock, GiProgression} from 'react-icons/gi';
 import {MdOutlineDoneOutline} from 'react-icons/md';
 import { useForm } from "react-hook-form";
 import axios from 'axios'
@@ -14,7 +14,12 @@ function Todos() {
   const { register, handleSubmit,  formState: { errors } } = useForm();
   const onSubmit = (data)=>{
     data={...data,taskStatus:"incomplete"}
-    console.log(data);
+
+    console.log("Tasks :", tasks)
+    let newId = tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1;
+    data.id = newId;
+
+    // console.log(data);
     axios.post('http://localhost:3500/todo/post',data)
     .then(response=>console.log(response))
     .catch(err=>console.log(err))

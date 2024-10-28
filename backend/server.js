@@ -6,10 +6,10 @@ const cors = require('cors')
 
 app.listen(3500,()=>console.log("Server is runnnign on port 3500"))
 //connecting to database
-const connection = mysql.createConnection({
+const connection = mysql.createConnection({ 
     host: 'localhost',
     user: 'root',
-    password: 'password',
+    password: '1234',
     database: 'tododatabase'
 });
 //checking if connection is successful or not  
@@ -34,6 +34,8 @@ app.post('/todo/post',(req,res)=>{
     const taskName = req.body.taskName;
     const taskPriority = req.body.taskPriority;
     const taskStatus = req.body.taskStatus;
+
+    console.log(id);
 
     const sqlInsert = "INSERT INTO tasksdata (id, taskName,taskPriority,taskStatus) VALUES (?,?,?,?)";
     connection.query(sqlInsert,[id,taskName,taskPriority,taskStatus] , (err,result)=>{
