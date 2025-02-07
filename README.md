@@ -1,4 +1,4 @@
-# TODO_WEB_APPLICATION
+# Task Scheduler System
 i have developed it using ReactJS , NodeJS , ExpressJS , MySQL
 To run run this project you need to have these dependencie in your vs code
 "name": "frontend",
